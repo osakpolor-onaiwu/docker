@@ -1,0 +1,6 @@
+# Exclude specific files
+dummy.txt
+
+# Exclude a directory
+node_modules
+dummy/
