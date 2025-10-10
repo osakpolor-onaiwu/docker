@@ -13,7 +13,7 @@ COPY package*.json /app/
 RUN npm install
 
 #this copies the src folder to the working directory in the container
-COPY src /app/
+# COPY src /app/
 
 #this copies all other files to the working directory in the container
 COPY . .
