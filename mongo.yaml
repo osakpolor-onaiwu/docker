@@ -8,6 +8,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
     ports:
       - "27017:27017"
+    volumes:
+      - mongo-data:/data/db ## this creates a named volume for MongoDB data persistence
 
   mongo-express:
     image: mongo-express
@@ -20,3 +22,6 @@ services:
       - "8081:8081"
     depends_on:
       - mongodb ## this means mongo-express will start after mongodb has started
+volumes:
+  mongo-data:
+    driver: local ## this specifies that the volume is a local volume

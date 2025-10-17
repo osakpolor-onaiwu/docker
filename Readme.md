@@ -142,8 +142,13 @@ the docker compose will handle that for you
 
 ## types of docker volumes
 - 1. Host volume: here we use the docker run command with a -v flag, and specify the host folder and the docker own e.g
-** docker run -v {host folder path}:{docker container path}**
+**docker run -v {host folder path}:{docker container path}**
     - you decide where on the host file system the reference is made
-- 2. here you only specify the path in the docker container. docker handles where in the host folder to pick it.
-**docker run -v {docker container paht}**
+- 2. Anonymous volume: here you only specify the path in the docker container. docker handles where in the host  to put it.
+**docker run -v {docker container path}**
 
+- 3. named volume: here you specify the path in the docker container and the name in the host container. you don't provide the path in the host container. This is the one you should use in production
+**docker run -v name:{docker container path}**
+
+- you can define your volumes in your docker compose, or you can do it via docker run command
+- when determining the docker container path, check where the db stores in data on the host file system, use that also in the docker container. it differs from database to database.
